@@ -4,9 +4,7 @@ export default defineEventHandler(async (event) => {
 	const payload = await requireAuth(event);
 
 	if (payload.username === "demo") {
-		return {
-			username: payload.username,
-		};
+		return payload;
 	} else {
 		setResponseStatus(event, 404, "not found");
 		return;

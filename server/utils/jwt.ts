@@ -9,7 +9,7 @@ const JWT_SECRET = new TextEncoder().encode(authSecret);
 export async function createJWT(username: string) {
 	return await new SignJWT({ username })
 		.setProtectedHeader({ alg: "HS256" })
-		.setIssuer("acdh-ch.corpsum")
+		.setIssuer("acdh-ch.jwt-tester")
 		.setIssuedAt()
 		.setExpirationTime(Date.now() + parseInt(jwtExpiration))
 		.sign(JWT_SECRET);

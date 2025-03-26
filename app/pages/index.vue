@@ -5,6 +5,8 @@ defineRouteRules({
 
 const t = useTranslations();
 
+const res = await useFetch("/api/auth/me");
+
 usePageMetadata({
 	title: t("IndexPage.meta.title"),
 });
@@ -13,5 +15,6 @@ usePageMetadata({
 <template>
 	<MainContent class="container grid content-start gap-y-8 py-8">
 		<PageTitle>{{ t("IndexPage.title") }}</PageTitle>
+		{{ res.data }}
 	</MainContent>
 </template>
